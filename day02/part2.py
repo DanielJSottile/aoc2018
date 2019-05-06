@@ -26,14 +26,10 @@ def main():
             for a in lines:
                 if match_minus_one(a, match) and match_num is False:
                     match_num = True
-                    list_a = list(a)
-                    list_match = list(match)
-                    for i, char in enumerate(list_a):
-                        if char != list_match[i]:
-                            list_a.pop(i)
-                            list_match.pop(i)
-                    final_ans = ''.join(list_a)
-                    print(final_ans, end='')
+                    for c, d in zip(a, match):
+                        if c == d:
+                            print(c, end='')
+    return 0
 
 
 if __name__ == '__main__':
