@@ -20,15 +20,14 @@ def main():
 
     with open(args.data_file) as f:
         lines = tuple(f)
-        for i in range(len(lines)):
-            match = lines[i]
+        for i, match in enumerate(lines):
             for a in lines[i + 1:]:
                 if match_minus_one(a, match):
                     for c, d in zip(a, match):
                         if c == d:
                             print(c, end='')
-    print('')
-    return 0
+                    print('')
+                    return 0
 
 
 if __name__ == '__main__':
