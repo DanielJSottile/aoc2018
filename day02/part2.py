@@ -17,18 +17,17 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('data_file')
     args = parser.parse_args()
-    match_num = False
 
     with open(args.data_file) as f:
         lines = tuple(f)
         for i in range(len(lines)):
             match = lines[i]
-            for a in lines:
-                if match_minus_one(a, match) and match_num is False:
-                    match_num = True
+            for a in lines[i + 1:]:
+                if match_minus_one(a, match):
                     for c, d in zip(a, match):
                         if c == d:
                             print(c, end='')
+    print('')
     return 0
 
 
